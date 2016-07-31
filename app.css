@@ -1,3 +1,94 @@
+// Place all the styles related to the Maps controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.list-group {
+  width: 600px;
+  display:inline-block;
+  font-size: 18px;
+  line-height: 23px;
+  margin-bottom: 0px;
+}
+
+.container-fluid {
+  margin-bottom: 50px;
+}
+
+body a {
+  color: blue;
+}
+
+body a:hover {
+  color: red;
+  text-decoration: none;
+}
+
+body .list-group-item.active {
+  background-color: #000000;
+}
+
+body .list-group-item.active:hover {
+  background-color: #000000;
+}
+
+.select-map {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+}
+
+.btn {
+  padding: 5px 7px 2px;
+  margin: 0px 2px;
+}
+
+.reset.btn {
+  margin-left: 10px;
+}
+
+.delete-btn {
+  position: relative;
+  float:right;
+}
+
+.save-form {
+  display: none;
+}
+
+.btn.login-btn {
+  margin-bottom: 2px;
+}
+
+.btn.real-save-btn {
+  margin-bottom: 3px;
+}
+
+.btn.update-btn {
+  margin-bottom: 2px;
+}
+
+.alert {
+  margin-top: 10px;
+}
+
+svg {
+  display: block;
+  margin: auto;
+}
+
+.headers {
+  text-align: center;
+}
+
+.map {
+  margin-top: -30px;
+}
+
+#states {
+  stroke: #fff;
+  stroke-width: 0.5px;
+}
+
 .neutral {
   fill: gray;
 }
@@ -10,6 +101,41 @@
   fill: red;
 }
 
+.ev {
+  font-family: sans-serif;
+  font-size: .9em;
+}
+
+#dems {
+  display: inline;
+}
+
+.dem-tally {
+  color: blue;
+  display: inline;
+}
+
+#reps {
+  display: inline;
+}
+
+.rep-tally {
+  color: red;
+  display: inline;
+  margin: 0px;
+
+}
+
+#unassigned {
+  display: inline;
+}
+
+.unassigned-tally {
+  display: inline;
+  margin: 0px 60px;
+}
+
+
 .d3-tip {
   line-height: 1;
   font-family: sans-serif;
@@ -17,4 +143,51 @@
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 8px;
+}
+
+.winner {
+  font-weight: bold;
+  font-variant: small-caps;
+  display: inline;
+}
+
+img {
+  width: 19px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  width: 250px;
+  border: 1px solid gray;
+  padding: 15px;
+  margin: 16px;
+}
+
+.flex-item .dem-tally {
+  margin: 0px;
+}
+
+.flex-item h4 {
+  margin-top: 3px;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 80px;
+}
+
+footer {
+  position:  fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  background-color: #f5f5f5;
+}
+
+footer p {
+  margin: 10px 0;
 }
