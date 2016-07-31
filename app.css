@@ -1,0 +1,20 @@
+.neutral {
+  fill: gray;
+}
+
+.blue {
+  fill: blue;
+}
+
+.red {
+  fill: red;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-family: sans-serif;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 8px;
+}
