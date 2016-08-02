@@ -75,8 +75,8 @@ myApp.directive('d3Visualization', function() {
             .attr("id", "states")
             // .on("click", click)
             // .on("contextmenu", rightClick)
-            // .on('mouseover', tip.show)
-            // .on('mouseout', tip.hide);
+            .on('mouseover', tip.show)
+            .on('mouseout', tip.hide);
         svg.selectAll("text")
             .data(json.features)
             .enter()
