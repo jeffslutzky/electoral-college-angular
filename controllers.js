@@ -1,4 +1,4 @@
-myApp.controller('myController', function myController() {
+var myController = function() {
 
   var vm = this;
 
@@ -8,4 +8,4 @@ myApp.controller('myController', function myController() {
     });
   };
 
-});
+};

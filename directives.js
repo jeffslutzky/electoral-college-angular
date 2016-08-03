@@ -10,6 +10,9 @@ myApp.directive('d3map', function() {
   var unassignedEV = 538;
   var stateColor = "neutral";
 
+
+
+
   return {
     restrict: 'E',
     scope: {
