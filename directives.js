@@ -14,10 +14,16 @@ myApp.directive('d3map', function() {
     restrict: 'E',
     scope: {
       val: '=',
+      click: '&'
 
     },
+    controller: myController,
+    controllerAs: 'vm',
+    bindToController: true,
     link: function(scope, element, attrs) {
-
+      console.log(scope);
+      console.log(element);
+      console.log(attrs);
       var projection = d3.geo.albersUsa()
           .translate([w/2, h/2])
           .scale([1500]);
@@ -64,6 +70,9 @@ myApp.directive('d3map', function() {
             // })
             .attr("id", "states")
             // .on("click", click)
+            .on('click', function(d, i) {
+              return vm.clickState({item: d});
+            })
             // .on("contextmenu", rightClick)
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide);
