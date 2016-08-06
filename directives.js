@@ -1,5 +1,18 @@
 myApp.directive('d3map', function() {
 
+  // var myController = function() {
+  //
+  //   var vm = this;
+  //   vm.clickState = function() {
+  //     debugger;
+  //     $scope.$apply(function() {
+  //       debugger;
+  //     });
+  //   };
+  //
+  // };
+
+
   var w = 1300;
   var h = 700;
 
@@ -10,23 +23,19 @@ myApp.directive('d3map', function() {
   var unassignedEV = 538;
   var stateColor = "neutral";
 
-
-
-
   return {
     restrict: 'E',
     scope: {
-      val: '=',
-      click: '&'
-
+      // val: '=',
+      clickState: '&',
     },
-    controller: myController,
+    controller: 'myController',
     controllerAs: 'vm',
     bindToController: true,
     link: function(scope, element, attrs) {
-      console.log(scope);
-      console.log(element);
-      console.log(attrs);
+
+      var vm = scope.vm;
+
       var projection = d3.geo.albersUsa()
           .translate([w/2, h/2])
           .scale([1500]);
