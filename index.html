@@ -34,15 +34,15 @@
         </div>
         <div class="list-group-item">
           <div class="dem-tally">
-            Democrats: <div id="dems">0</div>
+            Democrats: <div id="dems">{{ vm.blueEV }}</div>
           </div>
 
           <div class="unassigned-tally">
-            Unassigned: <div id="unassigned">538</div>
+            Unassigned: <div id="unassigned">{{ vm.unassignedEV }}</div>
           </div>
 
           <div class="rep-tally">
-            Republicans: <div id="reps">0</div>
+            Republicans: <div id="reps">{{ vm.redEV }}</div>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="map">
-      <d3map click="clickState()"></d3map>
+      <d3map></d3map>
     </div>
 
   </div>

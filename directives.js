@@ -1,33 +1,16 @@
+'use strict';
+
 myApp.directive('d3map', function() {
-
-  // var myController = function() {
-  //
-  //   var vm = this;
-  //   vm.clickState = function() {
-  //     debugger;
-  //     $scope.$apply(function() {
-  //       debugger;
-  //     });
-  //   };
-  //
-  // };
-
 
   var w = 1300;
   var h = 700;
 
-  var blueStates = [];
-  var redStates = [];
-  var blueEV = 0;
-  var redEV = 0;
-  var unassignedEV = 538;
   var stateColor = "neutral";
 
   return {
     restrict: 'E',
     scope: {
-      // val: '=',
-      clickState: '&',
+      // clicktate: '&',
     },
     controller: 'myController',
     controllerAs: 'vm',
@@ -35,6 +18,7 @@ myApp.directive('d3map', function() {
     link: function(scope, element, attrs) {
 
       var vm = scope.vm;
+      scope.blueEV = 0;
 
       var projection = d3.geo.albersUsa()
           .translate([w/2, h/2])
@@ -72,6 +56,7 @@ myApp.directive('d3map', function() {
             .append("path")
             .attr("d", path)
             .attr("class", "neutral")
+
             // .attr("class", function(d) {
             //   if (userMapData) {
             //     getStateColor(d);
@@ -80,12 +65,17 @@ myApp.directive('d3map', function() {
             //   }
             //   return stateColor;
             // })
+
             .attr("id", "states")
-            // .on("click", click)
+
             .on('click', function(d, i) {
-              return vm.clickState({item: d});
+              vm.blueEV += d.ev;
+              vm.unassignedEV -= d.ev;
+              return vm.clickState(d, i, this);
             })
+
             // .on("contextmenu", rightClick)
+
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide);
         svg.selectAll("text")
@@ -109,6 +99,35 @@ myApp.directive('d3map', function() {
             })
             .text(function(d) { return d.ev; });
       });
+
+      var click = function(d) {
+
+        if (this.classList == "neutral") {
+          d3.select(this)
+              .classed({"neutral": false, "blue": true});
+          blueStates.push(d.properties.name);
+          blueEV += d.ev;
+          unassignedEV -= d.ev;
+        } else if (this.classList == "blue") {
+          d3.select(this)
+              .classed({"blue": false, "red": true});
+          blueStates.splice($.inArray(d.properties.name, blueStates),1);
+          blueEV -= d.ev;
+          redStates.push(d.properties.name);
+          redEV += d.ev;
+        } else {
+          d3.select(this)
+              .classed({"red": false, "neutral": true});
+          redStates.splice($.inArray(d.properties.name, redStates),1);
+          redEV -= d.ev;
+          unassignedEV += d.ev;
+        };
+
+        updateTally();
+        updateHiddenForm();
+        checkForWinner();
+      };
+
     }
   }
 });
