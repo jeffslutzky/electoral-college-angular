@@ -12,13 +12,12 @@ myApp.directive('d3map', function() {
     scope: {
       // clicktate: '&',
     },
-    controller: 'myController',
+    controller: 'mapController',
     controllerAs: 'vm',
     bindToController: true,
     link: function(scope, element, attrs) {
 
       var vm = scope.vm;
-      scope.blueEV = 0;
 
       var projection = d3.geo.albersUsa()
           .translate([w/2, h/2])

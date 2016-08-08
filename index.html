@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body ng-controller="evController as ctrl">
 
   <div class="container-fluid">
 
@@ -42,7 +42,7 @@
           </div>
 
           <div class="rep-tally">
-            Republicans: <div id="reps">{{ vm.redEV }}</div>
+            Republicans: <div id="reps">{{ ctrl.redEV }}</div>
           </div>
         </div>
       </div>
